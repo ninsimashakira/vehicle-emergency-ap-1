@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/dashboard_drawer"
+    tools:context=".DriverDashboard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/white"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/services"
+            android:textAlignment="center"
+            android:background="@color/material_dynamic_primary30"
+            android:textColor="@color/white"
+            android:textAppearance="?attr/textAppearanceHeadline3"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp">
+
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                android:id="@+id/mSearch"
+                >
+                <!-- Media -->
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/mechanic_icon"
+                    app:srcCompat="@drawable/driver" />
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mechanic"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <!-- Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:textAppearance="?attr/textAppearanceHeadline5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/gpsLocator"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/mSearch"
+                >
+                <!-- Media -->
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/gps_locator_icon"
+                    app:srcCompat="@drawable/driver" />
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gps_locator"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <!-- Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:textAppearance="?attr/textAppearanceHeadline5"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/emergency"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                android:layout_below="@+id/mSearch"
+                >
+                <!-- Media -->
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/emergency_call_icon"
+                    app:srcCompat="@drawable/driver" />
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emergency_call"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <!-- Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:id="@+id/btnEmergency"
+                    android:textAppearance="?attr/textAppearanceHeadline5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tips"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/emergency"
+                android:layout_below="@+id/gpsLocator"
+                >
+                <!-- Media -->
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/tips_and_tricks_icon"
+                    app:srcCompat="@drawable/driver" />
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tips_tricks"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <!-- Buttons -->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:id="@+id/btnTips"
+                    android:textAppearance="?attr/textAppearanceHeadline5"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
+
+
+
+
+

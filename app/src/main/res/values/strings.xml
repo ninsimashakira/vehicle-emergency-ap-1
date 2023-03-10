@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Vehicle Emergencyap</string>
+    <string name="tips_tricks"><![CDATA[Tips & tricks]]></string>
+    <string name="search">search</string>
+    <string name="emergency_call">Emergency Call</string>
+    <string name="gps_locator">gps locator</string>
+    <string name="mechanic">Mechanic</string>
+    <string name="services">Services</string>
+    <string name="mechanic_icon">mechanic icon</string>
+    <string name="gps_locator_icon">gps locator icon</string>
+    <string name="emergency_call_icon">emergency call icon</string>
+    <string name="tips_and_tricks_icon">tips and tricks icon</string>
+    <string name="update_business">Update Bussiness</string>
+    <string name="launcher_image">launcher image</string>
+    <string name="title_activity_driver_sign_up">Driver Sign up</string>
+    <string name="driver_registration">Driver Registration</string>
+    <string name="full_name">Full Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="car_make_and_model">Car Make and Model</string>
+    <string name="register">Register</string>
+    <string-array name="navigation_drawer_items_array">
+        <item>Profile</item>
+        <item>Settings</item>
+        <item>Sign out</item>
+    </string-array>
+
+
+</resources>

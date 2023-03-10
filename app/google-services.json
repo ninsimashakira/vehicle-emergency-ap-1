@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "480563470942",
+    "firebase_url": "https://vehicleassist-1cd8d-default-rtdb.firebaseio.com",
+    "project_id": "vehicleassist-1cd8d",
+    "storage_bucket": "vehicleassist-1cd8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480563470942:android:89eb5f9b88e106cdd7cacf",
+        "android_client_info": {
+          "package_name": "com.example.vehicleemergencyap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480563470942-v9877d4k2urj0p89582tso588bm7dl9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr8_dY3hCuStfXfgWGYCujUzYxUJlZsBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480563470942-v9877d4k2urj0p89582tso588bm7dl9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
