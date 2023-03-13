@@ -56,7 +56,8 @@ public class driverLogin extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(driverLogin.this, "Authentication succeeded.",
                                             Toast.LENGTH_SHORT).show();
-                                    // TODO: navigate to the next activity
+                                    Intent intent = new Intent(driverLogin.this,DriverDashboard.class);
+                                    startActivity(intent);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(driverLogin.this, "Authentication failed.",
