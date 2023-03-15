@@ -6,7 +6,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface OpenAIInterface {
-    @Headers({"Content-Type: application/json", "Authorization: Bearer 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"})
+    @Headers({"Content-Type: application/json", "Authorization: Bearer API_KEY"})
     @POST("engines/text-davinci-003/completions")
     Call<OpenAIResponse> getCarMaintenanceTip(@Body OpenAIRequest request);
 }

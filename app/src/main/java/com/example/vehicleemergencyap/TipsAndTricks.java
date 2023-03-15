@@ -51,8 +51,8 @@ public class TipsAndTricks extends AppCompatActivity {
 
     private void generateTip() {
         OpenAIRequest request = new OpenAIRequest(
-                "What tip can you give a driver about car maintenance today.",
-                100,
+                "Give me 2 tips and 2 tricks as driver about car maintenance today.",
+                150,
                 0.5
         );
 

@@ -6,26 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".TipsAndTricks">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/tip_recycler_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:padding="8dp"-->
-<!--        android:clipToPadding="false"-->
-<!--        android:scrollbars="vertical"/>-->
-
-    <TextView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tips and Tricks"
-        android:id="@+id/tipTextView"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/generateTipButton"
-        android:text="Generate Tip"
-        android:layout_centerInParent="true"
-        />
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tips and Tricks"
+                android:background="#004c69"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardBackgroundColor="@color/cream"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="2dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Get Valuable Tips and Tricks for Today"
+                        android:id="@+id/tipTextView"/>
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/generateTipButton"
+                    android:text="Generate Tip"
+                    android:layout_marginStart="50sp"
+                    android:layout_marginTop="40sp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
 
 </RelativeLayout>
