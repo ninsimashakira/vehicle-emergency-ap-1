@@ -121,12 +121,6 @@ public class DriverRegister extends AppCompatActivity {
                     return;
                 }
 
-//                if (carPlateNumber.isEmpty()) {
-//                    mCarPlateNumberLayout.setError("Please enter your car plate number");
-//                    mCarPlateNumberLayout.requestFocus();
-//                    return;
-//                }
-
                 // Show a progress dialog while registering the user
                 ProgressDialog progressDialog = new ProgressDialog(DriverRegister.this);
                 progressDialog.setMessage("Registering...");
@@ -151,17 +145,18 @@ public class DriverRegister extends AppCompatActivity {
                                 userData.put("carMakeModel", carMakeModel);
                                 db.collection("users").document(user.getUid()).set(userData)
                                         .addOnSuccessListener(aVoid -> {
-                                            // progressDialog.dismiss();
+                                             progressDialog.dismiss();
                                             Toast.makeText(DriverRegister.this, "Registration successful", Toast.LENGTH_SHORT).show();
+
                                             finish();
                                         })
                                         .addOnFailureListener(e -> {
-                                            // progressDialog.dismiss();
-                                            Toast.makeText(DriverRegister.this, "Failed to register: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            progressDialog.dismiss();
+                                            Toast.makeText(DriverRegister.this, "Failed to register: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                         });
                             } else {
-                                // progressDialog.dismiss();
-                                Toast.makeText(DriverRegister.this, "Failed to register: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                                 progressDialog.dismiss();
+                                Toast.makeText(DriverRegister.this, "Failed to register: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
             }

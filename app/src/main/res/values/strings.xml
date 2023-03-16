@@ -21,6 +21,10 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="car_make_and_model">Car Make and Model</string>
     <string name="register">Register</string>
+    <string name="mechanic_registration">Mechanic Registration</string>
+    <string name="city">City</string>
+    <string name="add_business">Add Bussiness</string>
+    <string name="mechanic_dashboard">Mechanic Dashboard</string>
     <string-array name="navigation_drawer_items_array">
         <item>Profile</item>
         <item>Settings</item>

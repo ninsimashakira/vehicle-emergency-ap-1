@@ -18,9 +18,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mechanic Dashboard"
+                android:text="@string/mechanic_dashboard"
                 android:textAlignment="center"
-                android:background="@color/material_dynamic_primary30"
+                android:background="#004c69"
                 android:textColor="@color/white"
                 android:id="@+id/mheading"
                 android:textAppearance="?attr/textAppearanceHeadline4"/>
@@ -45,7 +45,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Add Bussiness"
+                    android:text="@string/add_business"
                     android:textSize="18sp"
                     />
 
