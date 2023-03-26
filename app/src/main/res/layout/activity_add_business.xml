@@ -7,6 +7,7 @@
     tools:context=".AddBusiness">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/layoutCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white"
@@ -22,7 +23,7 @@
                 android:id="@+id/bRegHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/material_dynamic_primary30"
+                android:background="#004c69"
                 android:text="Register Business"
                 android:textAlignment="center"
                 android:textAppearance="?attr/textAppearanceHeadline4"
@@ -39,7 +40,7 @@
                     android:id="@+id/bNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,7 +69,7 @@
                     android:id="@+id/bEmailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone" />
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,25 +78,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Available">
+                android:hint="@string/days_available_eg_mon_fri">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/bAvailableEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bCityTextInputLayout"
+                android:id="@+id/bOpeningTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="City">
+                android:hint="Opening hours">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/bAddressEditTextConfirm"
+                    android:id="@+id/bOpeningHours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -104,18 +105,44 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bStreetTextInputLayout"
+                android:id="@+id/bClosingHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Street Address">
+                android:hint="Closing Hours">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/carMakeModelEditText"
+                    android:id="@+id/closingHours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/pickLocationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_location"
+                android:layout_margin="20dp"/>
+
+            <TextView
+                android:id="@+id/locationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location:"
+                android:textSize="16sp"
+
+                android:layout_marginTop="20dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/locationField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:visibility="gone"/>
 
 
             <com.google.android.material.button.MaterialButton
@@ -129,5 +156,7 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+
 
 </RelativeLayout>

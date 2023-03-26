@@ -25,6 +25,10 @@
     <string name="city">City</string>
     <string name="add_business">Add Bussiness</string>
     <string name="mechanic_dashboard">Mechanic Dashboard</string>
+    <string name="pick_location">Pick Location</string>
+    <string name="days_available_eg_mon_fri">Days Available (eg. mon - fri)</string>
+    <string name="view_business">View Business</string>
+    <string name="_0772123456">0772123456</string>
     <string-array name="navigation_drawer_items_array">
         <item>Profile</item>
         <item>Settings</item>

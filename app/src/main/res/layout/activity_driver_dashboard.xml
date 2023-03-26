@@ -32,14 +32,14 @@
         android:id="@+id/services_grid_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:paddingTop="30dp"
         android:columnCount="2"
         android:rowCount="2">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/gps_tracker_card"
-            android:layout_width="0dp"
+            android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
@@ -47,7 +47,9 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp">
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +83,8 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp">
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -118,7 +121,8 @@
             app:cardElevation="4dp"
             android:layout_marginTop="30dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp">
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp">
 
 
             <LinearLayout
@@ -154,7 +158,8 @@
             app:cardElevation="4dp"
             app:strokeColor="@color/black"
             android:layout_marginTop="30dp"
-            app:strokeWidth="2dp">
+            app:strokeWidth="2dp"
+            android:layout_margin="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -171,7 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Emergency Calls"
+                    android:text="EmergencyCalls"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
             </LinearLayout>
 
