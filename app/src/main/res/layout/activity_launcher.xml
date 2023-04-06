@@ -7,11 +7,14 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="347dp"
-        android:layout_marginBottom="178dp"
+        android:layout_height="200dp"
+        android:id="@+id/launcher_icon"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="200dp"
         android:contentDescription="@string/launcher_image"
-        tools:srcCompat="@mipmap/ic_launcher_final_white" />
+        android:visibility="visible"
+        tools:srcCompat="@mipmap/ic_launcher_final_white"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:layout_width="wrap_content"

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.google.android.material.button.MaterialButton;
 
-public class MechanicDashboard extends AppCompatActivity {
+public class MechanicDashboard extends NavigationDrawer {
 
     private MaterialButton btnAddBusn;
     private MaterialButton btnViewBusiness;

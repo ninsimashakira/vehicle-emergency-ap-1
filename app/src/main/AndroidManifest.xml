@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".BaseDrawerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NavigationDrawer"
+            android:exported="false" />
+        <activity
+            android:name=".FindMechanicActivity"
+            android:exported="false" />
+        <activity
             android:name=".BusinessDetailsActivity"
             android:exported="false" />
         <activity

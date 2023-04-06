@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Launcher extends AppCompatActivity {
 
@@ -15,6 +18,8 @@ public class Launcher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+        ImageView imageView = findViewById(R.id.launcher_icon);
+        imageView.setImageResource(R.mipmap.ic_launcher_final_white);
 
 
         progressBar = findViewById(R.id.launcherProgress);
@@ -30,11 +35,24 @@ public class Launcher extends AppCompatActivity {
             }
             // Launch the main activity
 //            progressBar.setVisibility(View.GONE);
-            Intent intent = new Intent(Launcher.this,MainActivity.class);
-            startActivity(intent);
-//                startActivity(MainActivity.newIntent(Launcher.this));
-            finish();
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            if (auth.getCurrentUser() != null) {
+                // User is signed in
+//                progressBar.setVisibility(View.GONE);
+                Intent intent = new Intent(Launcher.this, DriverDashboard.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // User is not signed in
+//                progressBar.setVisibility(View.GONE);
+                Intent intent = new Intent(Launcher.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }).start();
+
+
+
 
     }
 }

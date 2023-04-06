@@ -3,6 +3,7 @@ package com.example.vehicleemergencyap;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,8 @@ import java.util.Objects;
 
 public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapter.ViewHolder> {
 
-    private Context context;
-    private List<Business> businessList;
+    private final Context context;
+    private final List<Business> businessList;
 
     public BusinessListAdapter(Context context, int item_business, List<Business> businessList) {
         this.context = context;
@@ -80,6 +81,23 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
             businessAddress = itemView.findViewById(R.id.business_address_edittext);
             user_id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         }
+
+
+//        public void bind(Business business) {
+//            nameTextView.setText(business.getBusinessName());
+//            phoneTextView.setText(business.getPhone());
+//            emailTextView.setText(business.getEmail());
+//
+//            callButton.setOnClickListener(v -> {
+//                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + business.getPhone()));
+//                itemView.getContext().startActivity(intent);
+//            });
+//
+//            emailButton.setOnClickListener(v -> {
+//                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + business.getEmail()));
+//                itemView.getContext().startActivity(Intent.createChooser(intent, "Send email"));
+//            });
+//        }
     }
 }
 
