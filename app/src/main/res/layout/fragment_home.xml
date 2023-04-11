@@ -3,8 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_container"
     tools:context=".HomeFragment">
 
-    <include layout="@layout/activity_driver_dashboard"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#004c69"
+                android:text="@string/services"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="@color/white" />
+
+            <GridLayout
+                android:id="@+id/services_grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:paddingTop="30dp"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/gps_tracker_card"
+                    android:layout_width="0px"
+                    android:layout_height="200dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/driver" />
+
+                        <TextView
+                            android:id="@+id/gps_tracker_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="GPS Tracker"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/find_mechanic_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/driver">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/find_mechanic_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Find Mechanic"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tricks_and_tips_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_margin="10dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/driver" />
+
+                        <TextView
+                            android:id="@+id/tricks_and_tips_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Tricks and Tips"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/emergency_calls_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/driver" />
+
+                        <TextView
+                            android:id="@+id/emergency_calls_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="EmergencyCalls"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </GridLayout>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </FrameLayout>

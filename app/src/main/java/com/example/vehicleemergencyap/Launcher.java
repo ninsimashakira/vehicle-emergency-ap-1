@@ -23,6 +23,7 @@ public class Launcher extends AppCompatActivity {
 
 
         progressBar = findViewById(R.id.launcherProgress);
+        HomeFragment homeFragment = new HomeFragment();
 
         // Set up any other initialization here, such as loading data or initializing variables
         progressBar.setVisibility(View.VISIBLE);
@@ -39,7 +40,7 @@ public class Launcher extends AppCompatActivity {
             if (auth.getCurrentUser() != null) {
                 // User is signed in
 //                progressBar.setVisibility(View.GONE);
-                Intent intent = new Intent(Launcher.this, DriverDashboard.class);
+                Intent intent = new Intent(Launcher.this, NavigationDrawer.class);
                 startActivity(intent);
                 finish();
             } else {
