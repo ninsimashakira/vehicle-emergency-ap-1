@@ -20,13 +20,14 @@ public class MechanicLogin extends AppCompatActivity {
     private EditText emailField, passwordField;
     MaterialTextView txtSignUp;
     Button logInBtn;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mechanic_login);
         mAuth = FirebaseAuth.getInstance();
-
+        sessionManager = new SessionManager(getApplicationContext()); //caches user data
         txtSignUp = findViewById(R.id.txtSignUp);
         logInBtn = findViewById(R.id.login_button);
         emailField = findViewById(R.id.email_field);
@@ -64,6 +65,8 @@ public class MechanicLogin extends AppCompatActivity {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                sessionManager.setEmail(email);
+                                sessionManager.setRole("mechanic"); // set the user's role here
                                 if (user != null) {
                                     // Check if the user is a mechanic
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();

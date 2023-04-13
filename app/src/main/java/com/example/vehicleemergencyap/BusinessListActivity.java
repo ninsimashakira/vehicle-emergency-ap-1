@@ -47,7 +47,6 @@ public class BusinessListActivity extends AppCompatActivity {
                         Log.d("BusinessListActivity", businessList.toString());
                         adapter = new BusinessListAdapter(BusinessListActivity.this, R.layout.item_business, businessList);
                         recyclerView.setAdapter(adapter);
-                        Log.d(TAG, "ADAPTER IS HERE", task.getException());
                     } else {
                         Log.d(TAG, "Error getting businesses: ", task.getException());
                     }

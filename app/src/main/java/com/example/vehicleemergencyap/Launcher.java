@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Launcher extends AppCompatActivity {
-
+    private SessionManager sessionManager;
    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,24 @@ public class Launcher extends AppCompatActivity {
             // Launch the main activity
 //            progressBar.setVisibility(View.GONE);
             FirebaseAuth auth = FirebaseAuth.getInstance();
-            if (auth.getCurrentUser() != null) {
+            sessionManager = new SessionManager(getApplicationContext());
+            if (auth.getCurrentUser() != null && sessionManager.getEmail() != null && sessionManager.getRole() != null) {
                 // User is signed in
 //                progressBar.setVisibility(View.GONE);
-                Intent intent = new Intent(Launcher.this, NavigationDrawer.class);
-                startActivity(intent);
-                finish();
+//                check the user role and send them to their dashboard
+                if(sessionManager.getRole().equals("driver")) {
+                    Intent intent = new Intent(Launcher.this, NavigationDrawer.class);
+                    startActivity(intent);
+                    finish();
+                } else if (sessionManager.getRole().equals("mechanic")) {
+                    Intent intent = new Intent(Launcher.this, MechanicDashboard.class);
+                    startActivity(intent);
+                    finish();
+                }
             } else {
                 // User is not signed in
 //                progressBar.setVisibility(View.GONE);
-                Intent intent = new Intent(Launcher.this, MainActivity.class);
+                Intent intent = new Intent(Launcher.this, login_activity.class);
                 startActivity(intent);
                 finish();
             }

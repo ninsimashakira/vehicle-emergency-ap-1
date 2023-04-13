@@ -116,6 +116,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+            </com.google.android.material.textfield.TextInputLayout>  <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/locationLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/locationField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -125,24 +137,6 @@
                 android:text="@string/pick_location"
                 android:layout_margin="20dp"/>
 
-            <TextView
-                android:id="@+id/locationLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location:"
-                android:textSize="16sp"
-
-                android:layout_marginTop="20dp"
-                android:visibility="gone"/>
-
-            <TextView
-                android:id="@+id/locationField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:visibility="gone"/>
 
 
             <com.google.android.material.button.MaterialButton

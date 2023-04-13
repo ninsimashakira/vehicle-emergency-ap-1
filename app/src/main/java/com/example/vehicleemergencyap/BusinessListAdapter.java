@@ -46,6 +46,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, BusinessDetailsActivity.class);
             intent.putExtra("user_id", business.getUser_id());
+           intent.putExtra("businessId", business.getId());
             context.startActivity(intent);
         });
     }
@@ -83,21 +84,6 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         }
 
 
-//        public void bind(Business business) {
-//            nameTextView.setText(business.getBusinessName());
-//            phoneTextView.setText(business.getPhone());
-//            emailTextView.setText(business.getEmail());
-//
-//            callButton.setOnClickListener(v -> {
-//                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + business.getPhone()));
-//                itemView.getContext().startActivity(intent);
-//            });
-//
-//            emailButton.setOnClickListener(v -> {
-//                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + business.getEmail()));
-//                itemView.getContext().startActivity(Intent.createChooser(intent, "Send email"));
-//            });
-//        }
     }
 }
 

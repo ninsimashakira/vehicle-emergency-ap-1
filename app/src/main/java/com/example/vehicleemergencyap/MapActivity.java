@@ -1,8 +1,13 @@
 package com.example.vehicleemergencyap;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +32,7 @@ public class MapActivity extends AppCompatActivity implements
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
     private LatLng mCurrentLocation;
+    private Button pickLocationButton;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,25 @@ public class MapActivity extends AppCompatActivity implements
 
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+            pickLocationButton = findViewById(R.id.pickLocationButton);
+            pickLocationButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                        if (mCurrentLocation != null) {
+                            String latitude = String.valueOf(mCurrentLocation.latitude);
+                            String longitude = String.valueOf(mCurrentLocation.longitude);
+                            String location = latitude + ", " + longitude;
+
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra("location", location);
+                            setResult(RESULT_OK, resultIntent);
+                            finish();
+
+                    } else {
+                        Toast.makeText(MapActivity.this, "Please select a location", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
 
         }

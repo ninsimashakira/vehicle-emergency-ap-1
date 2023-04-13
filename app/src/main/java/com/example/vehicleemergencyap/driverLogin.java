@@ -26,6 +26,7 @@ public class driverLogin extends AppCompatActivity {
     private MaterialTextView createAcc;
 
     private MaterialTextView forgotPassword;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class driverLogin extends AppCompatActivity {
         createAcc = findViewById(R.id.txtSignUp);
         forgotPassword = findViewById(R.id.forgotPwd);
 
+        sessionManager = new SessionManager(getApplicationContext());
         // login action
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,8 @@ public class driverLogin extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    sessionManager.setEmail(email);
+                                    sessionManager.setRole("driver"); // set the user's role here
                                     Toast.makeText(driverLogin.this, "Authentication succeeded.",
                                             Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(driverLogin.this,HomeFragment.class);

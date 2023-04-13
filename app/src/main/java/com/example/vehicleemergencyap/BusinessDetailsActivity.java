@@ -1,5 +1,7 @@
 package com.example.vehicleemergencyap;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,12 +10,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BusinessDetailsActivity extends AppCompatActivity {
@@ -44,29 +48,38 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         saveChangesButton = findViewById(R.id.save_button);
         deleteButton = findViewById(R.id.delete_button);
 
-        db.collection("businesses").whereEqualTo("user_id", currentUser.getUid())
+        Intent intent = getIntent();
+        String businessId = intent.getStringExtra("businessId");
+
+        // Retrieve the business object from Firestore using the ID
+        db.collection("businesses").document(businessId)
                 .get()
-                .addOnSuccessListener(querySnapshot -> {
-                    if (!querySnapshot.isEmpty()) {
-                        Business business = querySnapshot.getDocuments().get(0).toObject(Business.class);
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            Business business = documentSnapshot.toObject(Business.class);
 
-                        // Set the EditTexts to show the current business details
-                        businessNameEditText.setText(business.getBusiness_name());
+                            // Set the EditTexts to show the current business details
+                            businessNameEditText.setText(business.getBusiness_name());
+                            emailEditText.setText(business.getEmail());
+                            phoneEditText.setText(business.getPhone());
 
-                        emailEditText.setText(business.getEmail());
-                        phoneEditText.setText(business.getPhone());
-// Save the business object for later use
-                        this.business = business;
-                    } else {
-                        Toast.makeText(BusinessDetailsActivity.this, "No business found", Toast.LENGTH_SHORT).show();
-                        finish(); // Finish the activity and go back to the previous one
+                            // Save the business object for later use
+                            BusinessDetailsActivity.this.business = business;
+                        } else {
+                            Toast.makeText(BusinessDetailsActivity.this, "No business found", Toast.LENGTH_SHORT).show();
+                            finish(); // Finish the activity and go back to the previous one
+                        }
                     }
                 })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(BusinessDetailsActivity.this, "Failed to retrieve business details", Toast.LENGTH_LONG).show();
-                    finish(); // Finish the activity and go back to the previous one
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(BusinessDetailsActivity.this, "Failed to retrieve business details", Toast.LENGTH_LONG).show();
+                        finish(); // Finish the activity and go back to the previous one
+                    }
                 });
-        // Set onClickListener for the Save Changes button
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,8 +90,10 @@ public class BusinessDetailsActivity extends AppCompatActivity {
 
                 // Update the business details in the database
                 if (business != null) {
-                    db.collection("businesses").document(business.getUser_id())
-                            .set(business)
+                    db.collection("businesses").document(business.getId())
+                            .update("business_name", business.getBusiness_name(),
+                                    "email", business.getEmail(),
+                                    "phone", business.getPhone())
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -95,34 +110,51 @@ public class BusinessDetailsActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(BusinessDetailsActivity.this, "No business selected", Toast.LENGTH_SHORT).show();
                 }
+            }
 
+        });
 
-                // Set onClickListener for the Delete button
+        // Set onClickListener for the Delete button
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an AlertDialog to confirm the deletion
+                AlertDialog.Builder builder = new AlertDialog.Builder(BusinessDetailsActivity.this);
+                builder.setTitle("Confirm deletion");
+                builder.setMessage("Are you sure you want to delete this business?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Delete the business from the database
+                        db.collection("businesses").document(business.getId())
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(BusinessDetailsActivity.this, "Business deleted", Toast.LENGTH_SHORT).show();
+                                        finish(); // Finish the activity and go back to the previous one
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(BusinessDetailsActivity.this, "Failed to delete business", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Do nothing
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
 
     }
-});
-
-
-      deleteButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // Delete the business from the database
-            db.collection("businesses").document(business.getUser_id())
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(BusinessDetailsActivity.this, "Business deleted", Toast.LENGTH_SHORT).show();
-                            finish(); // Finish the activity and go back to the previous one
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(BusinessDetailsActivity.this, "Failed to delete business", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
-    });
-}
 }
