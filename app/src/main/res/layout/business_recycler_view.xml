@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"/>
     <TextView
-        android:id="@+id/business_address_edittext"
+        android:id="@+id/business_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"/>

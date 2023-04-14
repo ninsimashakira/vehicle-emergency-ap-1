@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         holder.businessAvailable.setText(business.getAvailable());
         holder.businessOpenHours.setText(business.getOpen_hours());
         holder.businessClosingHours.setText(business.getClosing_hours());
+        holder.businessAddress.setText(business.getLocation());
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, BusinessDetailsActivity.class);
             intent.putExtra("user_id", business.getUser_id());
@@ -79,7 +81,8 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
             businessAvailable = itemView.findViewById(R.id.business_available);
             businessOpenHours = itemView.findViewById(R.id.businessOpenHours);
             businessClosingHours = itemView.findViewById(R.id.businessClosingHours);
-            businessAddress = itemView.findViewById(R.id.business_address_edittext);
+            businessAddress = itemView.findViewById(R.id.business_address);
+
             user_id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         }
 

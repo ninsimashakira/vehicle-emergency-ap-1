@@ -1,5 +1,6 @@
 package com.example.vehicleemergencyap;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,11 +53,16 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         String businessId = intent.getStringExtra("businessId");
 
         // Retrieve the business object from Firestore using the ID
+//        ProgressDialog progressDialog = new ProgressDialog(BusinessDetailsActivity.this);
+//        progressDialog.setTitle("Retrieving Business ");
+//        progressDialog.setMessage("Please wait while we get your business...");
+//        progressDialog.show();
         db.collection("businesses").document(businessId)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
+
                         if (documentSnapshot.exists()) {
                             Business business = documentSnapshot.toObject(Business.class);
 

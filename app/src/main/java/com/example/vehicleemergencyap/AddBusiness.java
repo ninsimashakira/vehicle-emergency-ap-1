@@ -75,6 +75,7 @@ public class AddBusiness extends AppCompatActivity {
                         assert data != null;
                         String selectedLocation = data.getStringExtra("location");
                         locationField.setText(selectedLocation);
+
                         pickLocation.setVisibility(View.GONE);
 
                         // do something with the selected location
@@ -114,6 +115,7 @@ public class AddBusiness extends AppCompatActivity {
         String openHoursString = openHours.getText().toString();
         String closingHoursString = closingHours.getText().toString();
         String locationFieldString = locationField.getText().toString();
+        Log.d("location",locationFieldString);
 
         Map<String, Object> businessData = new HashMap<>();
         businessData.put("email", emailString);

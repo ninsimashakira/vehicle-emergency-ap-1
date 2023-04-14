@@ -1,7 +1,4 @@
 package com.example.vehicleemergencyap;
-
-import com.google.android.gms.maps.model.LatLng;
-
 public class Business {
     private String id;
     private String email;
@@ -10,7 +7,7 @@ public class Business {
     private String available;
     private String open_hours;
     private String closing_hours;
-    private LatLng location;
+    private String location;
 
     private String user_id;
     public Business() {
@@ -25,7 +22,7 @@ public class Business {
         this.user_id = user_id;
     }
 
-    public Business(String id, String email, String business_name, String phone, String available, String open_hours, String closing_hours, LatLng location, String user_id) {
+    public Business(String id, String email, String business_name, String phone, String available, String open_hours, String closing_hours, String location, String user_id) {
         this.id = id;
         this.email = email;
         this.business_name = business_name;
@@ -93,11 +90,11 @@ public class Business {
         this.closing_hours = closing_hours;
     }
 
-    public LatLng getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(LatLng location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 }
